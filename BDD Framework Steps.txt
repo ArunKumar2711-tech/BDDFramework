@@ -1,0 +1,94 @@
+BDD Framework Steps
+
+>> Create Maven Project, it should show below tree structure
+  > src/main/java
+  > src/main/resources
+  > src/test/java
+  > src/test/resources
+
+>> Under src/test/resources, create a folder called "Features"
+
+>> In Features folder, create a feature file with extension .feature
+
+>> Create one PACKAGE from project for page object model and then classes for required pages
+
+>> Create another PACKAGE(Running) for test runner class (CucumberTestRunner) for execution
+
+>> Convert the project to testNG for creating testing.xml, here we need to provide the path for class (runner class)
+
+   <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test Suite" verbose="1">
+    <test name="Regression Tests">
+        <classes>
+            <class name="Running.CucumberTestRunner">
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
+>> In POM.xml, we need to add dependencies like selenium-java, webdrivermanager, testNG, cucumber-java, cucumber-testNG,cucumber-core
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BDDFramework2024</groupId>
+  <artifactId>BDDFramework2024</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+	  
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.23.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/com.sun/tools -->
+
+  
+	  
+	  
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.9.2</version>
+</dependency>
+	  
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.1</version>
+    <scope>compile</scope>
+</dependency>
+	  <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.7.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>6.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>6.7.0</version>
+        </dependency>	  
+	  
+	  
+  </dependencies>
+  
+  
+  
+  
+  
+</project>  
